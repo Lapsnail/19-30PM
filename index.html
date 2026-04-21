@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>19:30PM | Solar Bollard Lights</title>
+  <meta name="description" content="19:30PM creates modern solar bollard lights for elegant pathways, gardens, porches, and outdoor spaces." />
+  <meta name="theme-color" content="#111111" />
+  <style>
+    :root {
+      --bg: #0f0e0c;
+      --bg-soft: #171512;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f4efe7;
+      --muted: #c8bba8;
+      --gold: #d1a15f;
+      --gold-deep: #a6783b;
+      --shadow: 0 20px 55px rgba(0, 0, 0, 0.32);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(209, 161, 95, 0.12), transparent 24%),
+        linear-gradient(180deg, #11100d 0%, #15120f 38%, #0c0b09 100%);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(12, 11, 9, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+      color: #1b1712;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-copy small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+      color: #1a140f;
+      box-shadow: 0 14px 30px rgba(166, 120, 59, 0.26);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(209, 161, 95, 0.12);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .hero {
+      padding: 48px 0 60px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 760px;
+      border-radius: 34px;
+      overflow: hidden;
+      background: #0d0c0a;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(10,10,10,0.64) 0%, rgba(10,10,10,0.26) 42%, rgba(10,10,10,0.18) 100%),
+        linear-gradient(180deg, rgba(10,10,10,0.12) 0%, rgba(10,10,10,0.3) 100%);
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0.92;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.95fr 0.55fr;
+      gap: 26px;
+      min-height: 760px;
+      align-items: end;
+      padding: 46px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      align-self: start;
+      padding-top: 24px;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(42px, 6vw, 88px);
+      max-width: 760px;
+    }
+
+    .hero-copy p {
+      font-size: 18px;
+      color: #e5d8c7;
+      max-width: 620px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(20, 18, 15, 0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+      color: #fff;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-side {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+    }
+
+    .hero-panel {
+      width: min(100%, 360px);
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(14, 13, 11, 0.68);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .hero-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section { padding: 24px 0 88px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(32px, 4vw, 52px);
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: rgba(209, 161, 95, 0.12);
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .card p, .muted { color: var(--muted); }
+
+    .feature-wrap {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .feature-image {
+      position: relative;
+      min-height: 680px;
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 24%, rgba(255, 222, 160, 0.2), transparent 18%),
+        linear-gradient(180deg, #2a2824 0%, #181613 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-image img {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: min(82%, 520px);
+      height: auto;
+      filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.34));
+    }
+
+    .feature-panel {
+      padding: 32px;
+      border-radius: 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-panel h3 {
+      margin: 16px 0 12px;
+      font-size: 40px;
+    }
+
+    .sku-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .sku-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sku-item strong {
+      display: block;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .sku-price {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(209, 161, 95, 0.12);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .spec {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .spec strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .quote-box,
+    .story-box,
+    .cta,
+    .info-card,
+    .faq-item {
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-box {
+      padding: 34px;
+      background: linear-gradient(180deg, rgba(209,161,95,0.14) 0%, rgba(209,161,95,0.07) 100%);
+      border: 1px solid rgba(209,161,95,0.16);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quote-box p {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.18;
+      margin: 0 0 14px;
+    }
+
+    .story-box {
+      padding: 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .story-box h3,
+    .cta h2 { margin-top: 0; font-size: 34px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .info-card {
+      padding: 26px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .info-card span {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .cta {
+      padding: 36px;
+      background: linear-gradient(135deg, #2b2117 0%, #614528 40%, #b17d43 100%);
+      color: #fff;
+    }
+
+    .cta p { color: rgba(255,255,255,0.84); }
+
+    .site-footer {
+      padding: 28px 0 56px;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-content,
+      .feature-wrap,
+      .split,
+      .grid-3,
+      .two-col,
+      .faq {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .nav,
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links { flex-wrap: wrap; }
+      .hero-card { min-height: 820px; }
+      .hero-content { min-height: 820px; }
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding-top: 28px; }
+      h1 { font-size: 46px; }
+      .hero-copy p { font-size: 16px; }
+      .stats,
+      .specs { grid-template-columns: 1fr; }
+      .hero-card,
+      .hero-content { min-height: auto; }
+      .hero-content { padding: 28px; }
+      .feature-image { min-height: 520px; }
+      .feature-image img { width: min(88%, 420px); }
+      .sku-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="19:30PM Home">
+        <div class="brand-mark">19</div>
+        <div class="brand-copy">
+          19:30PM
+          <small>Solar Bollard Lights</small>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#products">Product</a>
+        <a href="#features">Features</a>
+        <a href="#about">Brand</a>
+        <a href="#scenes">Scenes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="#products">View Pricing</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-bg">
+            <img src="hero-scene.jpg" alt="19:30PM solar bollard lights in a modern front yard pathway at night" />
+          </div>
+          <div class="hero-content">
+            <div class="hero-copy">
+              <div class="eyebrow">Modern Solar Bollard Lights</div>
+              <h1>Elegant pathway lighting for the moments that begin after sunset.</h1>
+              <p>
+                19:30PM is built around modern solar bollard lights that bring structure, atmosphere, and a soft architectural glow to walkways, gardens, porches, and front-yard landscapes. The brand mood is calm, elevated, and residential — inspired by that warm evening hour when a home starts to feel most inviting.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#products">Shop Pack Options</a>
+                <a class="btn btn-secondary" href="#about">Discover the Brand</a>
+              </div>
+              <div class="stats">
+                <div class="stat">
+                  <strong>Solar Powered</strong>
+                  <span>Cordless outdoor lighting with clean placement flexibility.</span>
+                </div>
+                <div class="stat">
+                  <strong>Modern Bollard Form</strong>
+                  <span>Minimal round-top silhouette for a more architectural look.</span>
+                </div>
+                <div class="stat">
+                  <strong>Evening Atmosphere</strong>
+                  <span>Designed to elevate paths, borders, and home exteriors at night.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-side">
+              <div class="hero-panel">
+                <h3>Recognized Product</h3>
+                <p>
+                  This product is a solar bollard pathway light with a round solar top, slim vertical support rods, and a ground stake base. It is designed for landscape installation along walkways, lawn borders, and garden edges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Why 19:30PM</div>
+            <h2>A more refined take on outdoor pathway lighting.</h2>
+          </div>
+          <p>
+            Unlike bulky lanterns or ordinary stake lights, this bollard design feels slimmer, cleaner, and more deliberate. It helps shape a nighttime landscape with stronger visual rhythm and a more premium residential style.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">☀️</div>
+            <h3>Solar Simplicity</h3>
+            <p>
+              The integrated solar top keeps the setup wire-free and easier to place across pathways, flower beds, and front-yard borders.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">🛣️</div>
+            <h3>Pathway Definition</h3>
+            <p>
+              The tall, slender form creates a more visible vertical presence, helping define routes and edges more clearly than low-profile path lights.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">✨</div>
+            <h3>Modern Residential Mood</h3>
+            <p>
+              The product is ideal for homeowners who want their landscape lighting to feel cleaner, calmer, and more architecturally aligned with the home.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Product & Pricing</div>
+            <h2>19:30PM Solar Bollard Lights</h2>
+          </div>
+          <p>
+            The current collection centers on one core product family with two practical purchase options, allowing customers to match the lighting plan to the size of their walkway or landscape zone.
+          </p>
+        </div>
+
+        <div class="feature-wrap">
+          <div class="feature-image">
+            <img src="product-2pack.png" alt="19:30PM solar bollard lights 2-pack product image" />
+          </div>
+
+          <div class="feature-panel">
+            <div class="eyebrow">Two Available SKUs</div>
+            <h3>Clean-lined bollard lighting with flexible pack selection.</h3>
+            <p class="muted">
+              This solar bollard light combines a round top solar panel, slim cylindrical support rods, and a ground stake base to create a minimal, modern exterior lighting profile. It is especially well suited for pathway borders, entry walks, and coordinated front-yard styling.
+            </p>
+
+            <div class="sku-list">
+              <div class="sku-item">
+                <div>
+                  <strong>2-Pack</strong>
+                  <div class="muted">Ideal for smaller paths, porch edges, or accent placement</div>
+                </div>
+                <div class="sku-price">$59.99</div>
+              </div>
+              <div class="sku-item">
+                <div>
+                  <strong>4-Pack</strong>
+                  <div class="muted">Better coverage for walkways, front yards, and larger scenes</div>
+                </div>
+                <div class="sku-price">$119.99</div>
+              </div>
+            </div>
+
+            <div class="tags">
+              <div class="tag">Solar Powered</div>
+              <div class="tag">Bollard Style</div>
+              <div class="tag">Landscape Accent</div>
+              <div class="tag">Modern Outdoor Look</div>
+            </div>
+
+            <div class="specs">
+              <div class="spec">
+                <strong>Product Type</strong>
+                <span class="muted">Solar bollard pathway light</span>
+              </div>
+              <div class="spec">
+                <strong>Pack Options</strong>
+                <span class="muted">2-pack and 4-pack</span>
+              </div>
+              <div class="spec">
+                <strong>Main Placement</strong>
+                <span class="muted">Walkways, lawns, path borders, porches, garden edges</span>
+              </div>
+              <div class="spec">
+                <strong>Design Language</strong>
+                <span class="muted">Minimal, slim, geometric, modern</span>
+              </div>
+              <div class="spec">
+                <strong>Visual Advantage</strong>
+                <span class="muted">Stronger vertical presence than common short solar path lights</span>
+              </div>
+              <div class="spec">
+                <strong>Brand Positioning</strong>
+                <span class="muted">Lifestyle-driven solar lighting for elevated residential exteriors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Key Advantages</div>
+            <h2>Designed to shape the whole scene, not just add light.</h2>
+          </div>
+          <p>
+            The real strength of this product is the way it repeats across a path or landscape edge. It creates visual rhythm, depth, and a cleaner nighttime composition around the home.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">🌙</div>
+            <h3>Better Evening Presence</h3>
+            <p>
+              The taller profile is easier to perceive at night, helping create a more polished and intentional lighting layout.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">🏠</div>
+            <h3>Matches Modern Homes</h3>
+            <p>
+              The round-top minimal silhouette works well with white porches, clean facades, stone walkways, and contemporary residential landscaping.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">📐</div>
+            <h3>Works Best in Sets</h3>
+            <p>
+              The product becomes more visually powerful when repeated, making the 2-pack and 4-pack options especially suitable for scene-building.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Brand Direction</div>
+            <h2>19:30PM is the mood of home after sunset.</h2>
+          </div>
+          <p>
+            The brand name 19:30PM evokes a specific evening feeling: the hour when lights begin to matter, pathways become softer, and a home starts to look calm, warm, and complete.
+          </p>
+        </div>
+
+        <div class="split">
+          <div class="quote-box">
+            <p>“Modern outdoor light for the quiet hour that makes home feel complete.”</p>
+            <div class="muted">
+              19:30PM is designed around a residential evening aesthetic — understated, atmospheric, and architectural.
+            </div>
+          </div>
+
+          <div class="story-box">
+            <h3>About 19:30PM</h3>
+            <p>
+              19:30PM is a solar outdoor lighting brand focused on clean-lined products that improve how residential spaces feel at night. Rather than chasing overly decorative forms, the brand emphasizes modern silhouettes, calm atmosphere, and lighting that supports the architecture of the home.
+            </p>
+            <p>
+              The solar bollard light is the current hero product because it expresses that idea clearly: simple structure, elegant repetition, and a strong relationship to pathways, borders, and home entry scenes.
+            </p>
+            <p>
+              The overall visual direction is warm, dark, and refined — inspired by front porches, illuminated stone paths, and the comfortable quiet of evening.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scenes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Use Scenes</div>
+            <h2>Built for real residential landscapes.</h2>
+          </div>
+          <p>
+            The solar bollard light is versatile, but its strongest use cases are outdoor spaces where repeated vertical lighting helps create a cleaner, more coordinated nighttime environment.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="info-card">
+            <span>01</span>
+            <strong>Front Walkways</strong>
+            <div class="muted">Guide visitors from curb or driveway to the front porch with a more elegant and visible path edge.</div>
+          </div>
+          <div class="info-card">
+            <span>02</span>
+            <strong>Garden Borders</strong>
+            <div class="muted">Frame planted areas and lawn transitions with slim, repeated lighting that feels neat rather than cluttered.</div>
+          </div>
+          <div class="info-card">
+            <span>03</span>
+            <strong>Porch & Entry Zones</strong>
+            <div class="muted">Use near steps, porch approaches, or house-side paths to strengthen the nighttime identity of the home exterior.</div>
+          </div>
+          <div class="info-card">
+            <span>04</span>
+            <strong>Pathway Styling</strong>
+            <div class="muted">Pair multiple units across stone or paver walkways to create consistent rhythm and a more designed look.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">FAQ</div>
+            <h2>Useful first-stage website content.</h2>
+          </div>
+          <p>
+            This section is designed to help the website feel complete now, while leaving room for future product specs, installation details, and policy updates.
+          </p>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h3>What is this product?</h3>
+            <p class="muted">It is a solar bollard pathway light designed for ground installation along landscape edges, walkways, and residential exterior routes.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How many pack options are available?</h3>
+            <p class="muted">The current website version presents two pack options: 2-pack at $59.99 and 4-pack at $119.99.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What kind of customer is it for?</h3>
+            <p class="muted">It is ideal for homeowners looking for a cleaner, more modern outdoor lighting look than standard low-profile solar path lights.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can this site expand later?</h3>
+            <p class="muted">Yes. It can easily grow into a fuller brand website with product detail pages, Amazon links, contact forms, blogs, or dealer information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Ready for your official business details.</h2>
+          </div>
+          <p>
+            Replace the placeholders below with your real brand email, Amazon storefront, or wholesale inquiry details before public launch.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="info-card">
+            <span>Email</span>
+            <strong>hello@1930pm.com</strong>
+            <div class="muted">Recommended as the main public contact for the brand site.</div>
+          </div>
+          <div class="info-card">
+            <span>Business Inquiry</span>
+            <strong>Retail / Distribution / Collaboration</strong>
+            <div class="muted">This area can later be replaced with a form, WhatsApp link, or dedicated wholesale page.</div>
+          </div>
+        </div>
+
+        <div style="height: 22px;"></div>
+
+        <div class="cta">
+          <h2>19:30PM is built for the atmosphere that begins when the day ends.</h2>
+          <p>
+            This website is designed as a GitHub-ready first version: clean, premium, product-focused, and easy to expand as the brand grows.
+          </p>
+          <a class="btn btn-secondary" href="mailto:hello@1930pm.com" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.24); color: white;">Contact 19:30PM</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© <span id="year"></span> 19:30PM. All rights reserved.</div>
+      <div>Modern Solar Bollard Lights for Elevated Outdoor Evenings.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
